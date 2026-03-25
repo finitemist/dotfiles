@@ -1,0 +1,191 @@
+@import "../../.cache/wal/colors-swaync.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: 600;
+    font-size: 13px;
+    transition: none;
+}
+
+/* ── Slide-in animation ───────────────────────── */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(120px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── Floating notification wrapper ───────────── */
+.floating-notifications {
+    background: transparent;
+}
+
+.notification-row {
+    outline: none;
+    margin: 6px 16px 0 0;
+    animation: slide-in 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
+}
+
+/* ── Notification card ────────────────────────── */
+.notification {
+    border-radius: 14px;
+    border: 2px solid @noti-border;
+    background: @noti-bg;
+    padding: 0;
+    min-width: 360px;
+    max-width: 360px;
+}
+
+.notification-content {
+    padding: 14px 16px;
+}
+
+/* ── App icon ─────────────────────────────────── */
+.app-icon {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+/* ── Text ─────────────────────────────────────── */
+.summary {
+    color: @noti-text;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.body {
+    color: alpha(@noti-text, 0.8);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.app-name {
+    color: alpha(@noti-text, 0.5);
+    font-size: 11px;
+}
+
+.time {
+    color: alpha(@noti-text, 0.4);
+    font-size: 11px;
+}
+
+/* ── Close button ─────────────────────────────── */
+.close-button {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: alpha(@noti-text, 0.35);
+    padding: 2px 4px;
+    transition: all 200ms ease;
+}
+
+.close-button:hover {
+    background: alpha(@noti-border, 0.25);
+    color: @noti-text;
+}
+
+/* ── Default action hover ─────────────────────── */
+.notification-default-action,
+.notification-default-action:not(.button) {
+    background: transparent;
+    border-radius: 14px;
+    border: none;
+    padding: 0;
+}
+
+.notification-default-action:hover {
+    background: alpha(@noti-border, 0.1);
+}
+
+/* ── Urgency: Low ─────────────────────────────── */
+.urgency-low .notification {
+    border-color: @noti-border-low;
+    background: @noti-bg-low;
+}
+.urgency-low .summary,
+.urgency-low .body {
+    color: @noti-text-low;
+}
+
+/* ── Urgency: Critical ────────────────────────── */
+.urgency-critical .notification {
+    border-color: @noti-border-critical;
+    background: @noti-bg-critical;
+}
+.urgency-critical .summary {
+    color: @noti-text-critical;
+    font-weight: bold;
+}
+
+/* ── Control center ───────────────────────────── */
+.control-center {
+    background: @cc-bg;
+    border: 1px solid @noti-border;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list .notification-row {
+    animation: none;
+    margin: 4px 0;
+}
+
+.control-center-list .notification {
+    min-width: unset;
+    max-width: unset;
+}
+
+/* ── Control center header ────────────────────── */
+.widget-title > label {
+    color: @noti-text;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.widget-title > button {
+    background: alpha(@noti-border, 0.15);
+    border: 1px solid @noti-border;
+    border-radius: 8px;
+    color: @noti-text;
+    font-size: 11px;
+    padding: 2px 10px;
+    transition: all 200ms ease;
+}
+
+.widget-title > button:hover {
+    background: alpha(@noti-border, 0.3);
+}
+
+/* ── Do Not Disturb toggle ────────────────────── */
+.widget-dnd {
+    margin: 4px 0 8px 0;
+}
+
+.widget-dnd > switch {
+    border-radius: 20px;
+    border: 1px solid @noti-border;
+    background: alpha(@noti-border, 0.15);
+}
+
+.widget-dnd > switch:checked {
+    background: @noti-border;
+}
+
+/* ── Empty label ──────────────────────────────── */
+.empty-state-label {
+    color: alpha(@noti-text, 0.35);
+    font-size: 13px;
+}

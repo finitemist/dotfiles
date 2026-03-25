@@ -1,0 +1,16 @@
+@define-color foreground {foreground};
+@define-color background {background};
+
+@define-color noti-bg          alpha({background}, 0.93);
+@define-color noti-border      {color1};
+@define-color noti-text        {foreground};
+
+@define-color noti-bg-low      alpha({background}, 0.75);
+@define-color noti-border-low  alpha({color1}, 0.45);
+@define-color noti-text-low    alpha({foreground}, 0.55);
+
+@define-color noti-bg-critical  alpha({color0}, 0.97);
+@define-color noti-border-critical {color9};
+@define-color noti-text-critical   {color15};
+
+@define-color cc-bg alpha({background}, 0.96);

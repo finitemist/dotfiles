@@ -1,0 +1,23 @@
+#tray {
+    border-radius: 16px;
+    margin: 5px 4px;
+    padding: 2px 4px;
+    background-color: transparent;
+}
+
+#tray image {
+    -gtk-icon-style: symbolic;
+    color: @color1;
+    background-color: alpha(@color1, 0.15);
+    border-radius: 10px;
+    padding: 3px 4px;
+    margin: 0 1px;
+    transition: all 0.25s ease;
+}
+
+#tray image:hover {
+    -gtk-icon-style: symbolic;
+    color: @foreground;
+    background-color: alpha(@color1, 0.35);
+    -gtk-icon-shadow: 0 0 8px @color1;
+}
