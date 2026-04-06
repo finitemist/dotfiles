@@ -1,0 +1,77 @@
+/**
+ * Wallpaper Picker Rofi Theme
+ * Grid layout with image previews
+ */
+
+configuration {
+    show-icons:          true;
+    display-drun:        " ";
+    disable-history:     true;
+    hide-scrollbar:      false;
+    sidebar-mode:        false;
+}
+
+@import "theme.rasi"
+
+/* Override window size */
+window {
+    width:               720px;
+    height:              480px;
+}
+
+mainbox {
+    children:            [ inputbar, listview ];
+    spacing:             12px;
+}
+
+inputbar {
+    children:            [ prompt, entry ];
+}
+
+prompt {
+    font:                "JetBrainsMono Nerd Font 14";
+}
+
+entry {
+    placeholder:         "Search wallpapers…";
+}
+
+/* Grid layout */
+listview {
+    columns:             4;
+    lines:               3;
+    spacing:             6px;
+    scrollbar:           true;
+    fixed-height:        true;
+    dynamic:             false;
+    flow:                horizontal;
+}
+
+/* Smaller icons for faster loading */
+element {
+    orientation:         vertical;
+    padding:             6px;
+    border-radius:       8px;
+}
+
+element-icon {
+    size:                140px;
+    padding:             0px 0px 4px 0px;
+    horizontal-align:    0.5;
+}
+
+element-text {
+    horizontal-align:    0.5;
+    font:                "JetBrainsMono Nerd Font 8";
+}
+
+/* Scrollbar styling */
+scrollbar {
+    width:               4px;
+    border:              0;
+    handle-width:        4px;
+    handle-color:        @accent;
+    background-color:    rgba(255, 255, 255, 0.05);
+    border-radius:       2px;
+    margin:              0px 0px 0px 4px;
+}

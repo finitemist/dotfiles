@@ -29,6 +29,7 @@ My personal Hyprland dotfiles for Fedora Linux — themed dynamically with [pywa
 - **swww wallpaper** — smooth center-transition animations when changing wallpapers
 - **Waybar** — workspace indicators, clock, network, audio, battery, CPU/RAM, keyboard language switcher
 - **Rofi** — macOS-style app launcher with MacTahoe icon theme
+- **Wallpaper Picker** — visual grid picker with thumbnails, random/next/prev cycling, and full pywal integration
 - **Mako + SwayNC** — polished notifications with per-urgency styling, volume/brightness HUD, and per-app accent colors
 - **Arabic/English** dual keyboard layout with `Alt+Shift` toggle and live indicator in Waybar
 - **Dual-monitor** workspace layout (laptop `eDP-1` + external `HDMI-A-1`)
@@ -50,7 +51,9 @@ dotfiles/
 │   └── kitty.conf           # Terminal config (font, opacity, pywal colors)
 ├── rofi/
 │   ├── generate-rofi.sh     # Regenerates theme.rasi from pywal palette
-│   └── theme.rasi           # Active launcher theme (auto-generated)
+│   ├── theme.rasi           # Active launcher theme (auto-generated)
+│   ├── wallpaper-picker.sh  # Visual wallpaper picker with pywal integration
+│   └── wallpaper-picker.rasi # Wallpaper picker rofi theme
 ├── swaync/
 │   ├── config.json          # Notification center layout + behavior
 │   └── style.css            # Notification styling (themed via pywal)
@@ -148,6 +151,19 @@ This will:
 Pywal also automatically restores the last color scheme on every new shell
 session (via `wal -R`).
 
+### Wallpaper Picker (GUI)
+
+Press `Super + W` to open a visual wallpaper picker with thumbnail previews:
+
+| Keybind | Action |
+|---------|--------|
+| `Super + W` | Open wallpaper picker (grid view) |
+| `Super + Shift + W` | Apply random wallpaper |
+| `Super + Alt + ]` | Next wallpaper |
+| `Super + Alt + [` | Previous wallpaper |
+
+The picker scans `~/Pictures` for images (excluding `Screenshots/` and `Camera/`), displays them in a rofi grid, and applies the selected wallpaper with full pywal theming.
+
 ## Keybindings
 
 | Keybind | Action |
@@ -155,6 +171,8 @@ session (via `wal -R`).
 | `Super + Q` | Open terminal (Kitty) |
 | `Super + E` | Open file manager (Ranger in Kitty) |
 | `Super + R` | Open app launcher (Rofi) |
+| `Super + W` | Open wallpaper picker |
+| `Super + Shift + W` | Random wallpaper |
 | `Super + C` | Close active window |
 | `Super + F` | Toggle fullscreen |
 | `Super + V` | Toggle floating |
